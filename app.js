@@ -1,0 +1,131 @@
+const rock = document.querySelector('.btn-rock')
+const paper = document.querySelector('.btn-paper')
+const scissors = document.querySelector('.btn-scissors')
+const result = document.querySelector('.info')
+const userWins = document.querySelector('.user-count')
+const computerWins = document.querySelector('.comp-count')
+const userImage = document.querySelector('.user-image')
+const computerImage = document.querySelector('.computer-image')
+const userLabel = document.querySelector('.user')
+const computerLabel = document.querySelector('.comp')
+const restart = document.querySelector('.restart')
+const endGame = document.querySelector('.end-result')
+const moves = document.querySelector('.moves')
+const game = {
+    1: 'r',
+    2: 'p',
+    3: 's'
+}
+
+let userInput = ''
+let userCount = 0
+let compCount = 0
+
+restart.classList.toggle('hidden')
+
+moves.addEventListener('click', ({target}) => {
+    const rand = Math.floor(Math.random() * 3 + 1)
+    const comp = game[rand]
+
+    switch (compCount < 5 && userCount < 5){
+        case target === rock && comp === 'r':
+            userImage.src = 'images/user_rock.png'
+            computerImage.src = 'images/comp_rock.png'
+            result.innerText = 'Tie'
+            break
+        case target === rock && comp === 'p':
+            userImage.src = 'images/user_rock.png'
+            computerImage.src = 'images/comp_hand.png'
+            result.innerText = 'Computer wins round!'
+            compCount++  
+            computerWins.innerText = compCount  
+            break
+        case target === rock && comp === 's':
+            userImage.src = 'images/user_rock.png'
+            computerImage.src = 'images/comp_scissors.png'
+            result.innerText = 'user wins round!'
+            userCount++
+            userWins.innerText = userCount
+            break
+        case target === paper && comp === 'r':
+            userImage.src = 'images/user_paper.png'
+            computerImage.src = 'images/comp_rock.png'
+            result.innerText = 'computer plays rock, user wins!'
+            userCount++
+            userWins.innerText = userCount
+            break
+        case target === paper && comp === 'p':
+            userImage.src = 'images/user_paper.png'
+            computerImage.src = 'images/comp_hand.png'
+            result.innerText = 'Tie'
+            break
+        case target === paper && comp === 's':
+            userImage.src = 'images/user_paper.png'
+            computerImage.src = 'images/comp_scissors.png'
+            result.innerText = 'computer plays scissors, computer wins!'
+            compCount++
+            computerWins.innerText = compCount
+            break
+        case target === scissors && comp === 'r':
+            userImage.src = 'images/user_scissors.png'
+            computerImage.src = 'images/comp_rock.png'
+            result.innerText = 'computer plays rock, computer wins!'
+            compCount++
+            computerWins.innerText = compCount
+            break
+        case target === scissors && comp === 'p':
+            userImage.src = 'images/user_scissors.png'
+            computerImage.src = 'images/comp_hand.png'
+            result.innerText = 'Computer plays paper, user wins!'
+            userCount++
+            userWins.innerText = userCount
+            break
+        case target === scissors && comp === 's':
+            userImage.src = 'images/user_scissors.png'
+            computerImage.src = 'images/comp_scissors.png'
+            result.innerText = 'Tie'
+            break   
+    }
+
+    if (userCount == 5){
+        endGame.innerText = 'VICTORY!'
+        PlayAgain()
+        restart.classList.toggle('hidden')
+    }
+    if (compCount == 5){
+        endGame.innerText = "I'm not even trying"
+        PlayAgain()
+        restart.classList.toggle('hidden')
+    }
+})
+
+function Reset(){
+    userCount = 0
+    compCount = 0
+    userWins.innerText = userCount
+    computerWins.innerText = compCount
+    result.innerText = ''
+}
+
+function PlayAgain(){
+    userCount = 0
+    compCount = 0
+    userWins.innerText = userCount
+    computerWins.innerText = compCount
+    result.innerText = ''
+    userWins.classList.toggle('hidden')
+    computerWins.classList.toggle('hidden')
+    userImage.classList.toggle('hidden')
+    computerImage.classList.toggle('hidden')
+    rock.classList.toggle('hidden')
+    paper.classList.toggle('hidden')
+    scissors.classList.toggle('hidden')
+    computerLabel.classList.toggle('hidden')
+    userLabel.classList.toggle('hidden')
+    result.innerText = ''
+    restart.addEventListener('click', ()=>{
+        PlayAgain()
+        endGame.innerText = ''
+        restart.classList.toggle('hidden')
+    })
+}
