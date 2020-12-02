@@ -1,0 +1,80 @@
+* {
+  margin: 0.5em;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  background-color: lightcoral;
+  color: white;
+}
+
+.main-content {
+  background-color: white;
+}
+
+.content-title {
+  text-align: center;
+  color: white;
+}
+
+.moves {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+button {
+  color: lightcoral;
+  background-color: white;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+}
+
+button:hover {
+  color: white;
+  background-color: lightcoral;
+}
+
+.info {
+  text-align: center;
+}
+
+.round {
+  display: flex;
+  justify-content: space-around;
+}
+
+.count {
+  display: flex;
+  justify-content: space-around;
+}
+
+.images {
+  display: flex;
+  justify-content: space-around;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.end-game {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+@media (max-width: 700px) {
+  * {
+    margin: 0;
+  }
+  img {
+    width: 150px;
+    height: 150px;
+  }
+}

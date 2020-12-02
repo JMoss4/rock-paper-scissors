@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="#" />
+</head>
+<body>
+    <header>
+        <h1 class="content-title">Rock Paper Scissor</h1>
+    </header>
+
+    <section>
+        <div class="main-content">
+            <ul class="moves">
+                <li><button class="btn-rock">Rock</button></li>
+                <li><button class="btn-paper">Paper</button></li>
+                <li><button class="btn-scissors">Scissors</button></li></li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <div class="labels">
+            <h1 class="info"></h1>
+            <div class="round">
+                <h1 class="user">You</h1>
+                <h1 class="comp">Comp</h1>
+            </div>
+            <div class="count">
+                <h1 class="user-count">0</h1>
+                <h1 class="comp-count">0</h1>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="end-game">
+            <h1 class="end-result"></h1>
+            <button class="restart">Restart</button>
+        </div>
+        <div class="sounds">
+            <audio src="audios/win-round.mp3" class="win-round"></audio>
+            <audio src="audios/wrong-choice.wav" class="lose-round"></audio>
+            <audio src="audios/tie.wav" class="tie"></audio>
+            <audio src="audios/winner.wav" class="winner"></audio>
+            <audio src="audios/joke.wav" class="loser"></audio>
+        </div>
+    </section>
+
+    <section>
+        <div class="images">
+            <img class='user-image' src="" alt="">
+            <img class='computer-image' src="" alt="">
+        </div>
+    </section>
+    <script src="app.js"></script>
+</body>
+</html>
